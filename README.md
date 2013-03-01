@@ -1,6 +1,6 @@
 # pinboard keyboard shortcut
 
-![icon](https://raw.github.com/bertrandom/pinboard-keyboard-shortcut/master/extension/img/icon128.png)
+![icon](https://s3.amazonaws.com/pinboard-keyboard-shortcut/icon128.png)
 
 There are a lot of Pinboard Chrome Extensions and they all suck. Even the [official one](https://chrome.google.com/webstore/detail/pinboard-tools/dpaohcncbmkojcpcjaojcehdlnjfbjkl?hl=en). 
 
