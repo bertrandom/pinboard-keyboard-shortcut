@@ -10,9 +10,20 @@ chrome.commands.onCommand.addListener(function(command) {
                 return;
             }
 
-            chrome.tabs.create({
-                url: 'https://pinboard.in/add?url=' + encodeURI(tab.url) + '&title=' + encodeURI(tab.title),
-                index: tab.index,
+            // use message passing to get the selected text (if any) to use as the description
+            // see https://developer.chrome.com/extensions/messaging.html
+            chrome.tabs.sendMessage(tab.id, {action: "getDescription"}, function(response) {
+                description = response.description;
+
+                // make creating the tab part of the sendMessage callback
+                // so that the tab isn't created before the response with the description
+                // is received
+                chrome.tabs.create({
+                                url: 'https://pinboard.in/add?url=' + encodeURI(tab.url) + '&title=' + encodeURI(tab.title) +
+                                '&description=' + encodeURIComponent(description),
+                                index: tab.index,
+                            });
+
             });
 
         });
