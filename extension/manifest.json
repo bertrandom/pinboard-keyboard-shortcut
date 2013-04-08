@@ -28,6 +28,13 @@
       },
       "description": "Bookmark the current page on Pinboard"
     }
-  }  
+  },
+
+  "content_scripts": [
+    {
+      "js": ["contentscript.js"],
+      "matches": [ "http://*/*", "https://*/*" ]
+    }
+  ]
 
 }
