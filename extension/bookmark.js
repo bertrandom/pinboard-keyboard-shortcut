@@ -19,7 +19,7 @@ chrome.commands.onCommand.addListener(function(command) {
                 // so that the tab isn't created before the response with the description
                 // is received
                 chrome.tabs.create({
-                                url: 'https://pinboard.in/add?url=' + encodeURI(tab.url) + '&title=' + encodeURI(tab.title) +
+                                url: 'https://pinboard.in/add?url=' + encodeURIComponent(tab.url) + '&title=' + encodeURIComponent(tab.title) +
                                 '&description=' + encodeURIComponent(description),
                                 index: tab.index,
                             });
