@@ -1,12 +1,12 @@
 closeEventBound = false;
-
 chrome.commands.onCommand.addListener(function(command) {
     
     if (command === 'bookmark-on-pinboard') {
 
         chrome.tabs.query({active:true, currentWindow: true}, function (tabs) {
-
+		
             if (tabs[0].url.substring(0,9) == 'chrome://') {
+	        console.log("foo hello")
                 return;
             }
 
@@ -41,5 +41,5 @@ chrome.commands.onCommand.addListener(function(command) {
 
 
     }
-
 });
+
