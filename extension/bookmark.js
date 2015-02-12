@@ -4,7 +4,7 @@ chrome.commands.onCommand.addListener(function(command) {
     
     if (command === 'bookmark-on-pinboard') {
 
-        chrome.tabs.getSelected(null, function (tab) {
+        chrome.tabs.query({active:true, currentWindow: true}, function (tabs) {
 
             if (tab.url.substring(0,9) == 'chrome://') {
                 return;
