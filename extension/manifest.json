@@ -22,9 +22,7 @@
   "commands": {
     "bookmark-on-pinboard": {
       "suggested_key": {
-        "default": "Ctrl+Y",
-        "mac": "Command+D",
-        "linux": "Ctrl+D"
+        "default": "Alt+D"
       },
       "description": "Bookmark the current page on Pinboard"
     }

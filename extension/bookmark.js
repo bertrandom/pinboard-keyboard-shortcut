@@ -1,7 +1,7 @@
 closeEventBound = false;
 
 chrome.commands.onCommand.addListener(function(command) {
-    
+
     if (command === 'bookmark-on-pinboard') {
 
         chrome.tabs.query({active:true, currentWindow: true}, function (tabs) {
@@ -13,7 +13,13 @@ chrome.commands.onCommand.addListener(function(command) {
             // use message passing to get the selected text (if any) to use as the description
             // see https://developer.chrome.com/extensions/messaging.html
             chrome.tabs.sendMessage(tabs[0].id, {action: "getDescription"}, function(response) {
-                description = response.description;
+
+                if (response && response.description) {
+                    description = response.description;                    
+                } else {
+                    description = '';
+                }
+
                 // make creating the tab part of the sendMessage callback
                 // so that the tab isn't created before the response with the description
                 // is received
